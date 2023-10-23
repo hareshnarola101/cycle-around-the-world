@@ -1,0 +1,37 @@
+<div class="calculate-container">
+    <h2>Calculate Cycling Time</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="latitude">Current Latitude:</label>
+      <input type="number" id="latitude" name="latitude" [(ngModel)]="latitude" required>
+      <label for="longitude">Current Longitude:</label>
+      <input type="number" id="longitude" name="longitude" [(ngModel)]="longitude" required>
+      <label for="selectedSpot">Choose Tourist Spot:</label>
+      <select id="selectedSpot" name="selectedSpot" [(ngModel)]="selectedSpot" required>
+        <option value="Antarctica">Antarctica</option>
+        <option value="Greenland">Greenland</option>
+        <option value="Easter Island">Easter Island</option>
+        <option value="Machu Picchu">Machu Picchu</option>
+        <option value="Mount Everest">Mount Everest</option>
+        <option value="Great Barrier Reef">Great Barrier Reef</option>
+        <option value="Stonehenge">Stonehenge</option>
+        <option value="Trans-Siberian Railway">Trans-Siberian Railway</option>
+        <option value="Uluru">Uluru</option>
+        <option value="The Great Wall of China">The Great Wall of China</option>
+        <!-- Add other options for tourist spots -->
+      </select>
+      <label for="cyclingSpeed">Cycling Speed (km/h):</label>
+      <input type="number" id="cyclingSpeed" name="cyclingSpeed" [(ngModel)]="cyclingSpeed" required>
+      <label for="dailyCyclingHours">Daily Cycling Hours:</label>
+      <input type="number" id="dailyCyclingHours" name="dailyCyclingHours" [(ngModel)]="dailyCyclingHours" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="result">
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+          <div *ngIf="!errorMessage">
+            Estimated Cycling Time: <span id="estimatedTime">{{ estimatedTime }}</span> hours
+          </div>
+    </div>
+  </div>
+  
